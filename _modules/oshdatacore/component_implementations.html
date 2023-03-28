@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>oshdatacore.component_implementations &mdash; PyOSHDataCore 0.0.1-alpha.20 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            PyOSHDataCore
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"></div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">PyOSHDataCore</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">oshdatacore.component_implementations</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for oshdatacore.component_implementations</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">copy</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">from</span> <span class="nn">dataclasses</span> <span class="kn">import</span> <span class="n">dataclass</span><span class="p">,</span> <span class="n">field</span>
+<span class="kn">from</span> <span class="nn">enum</span> <span class="kn">import</span> <span class="n">Enum</span>
+
+<span class="kn">from</span> <span class="nn">oshdatacore.datamodels_core</span> <span class="kn">import</span> <span class="n">DataComponentImpl</span><span class="p">,</span> <span class="n">SWEDataTypes</span><span class="p">,</span> <span class="n">AllowedTokens</span><span class="p">,</span> <span class="n">AllowedValues</span>
+
+
+<div class="viewcode-block" id="BooleanComponent"><a class="viewcode-back" href="../../index.html#oshdatacore.component_implementations.BooleanComponent">[docs]</a><span class="nd">@dataclass</span><span class="p">(</span><span class="n">kw_only</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">class</span> <span class="nc">BooleanComponent</span><span class="p">(</span><span class="n">DataComponentImpl</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    The “Boolean” class is used to specify a scalar data component with a Boolean</span>
+<span class="sd">    representation</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">        name: The name of the component</span>
+<span class="sd">        label: A human-readable label for the component</span>
+<span class="sd">        definition: A URI that identifies the ontological definition of the component</span>
+<span class="sd">        description: A description of the component</span>
+<span class="sd">        value: The latest value of the component</span>
+<span class="sd">        swe_type: SWEDataTypes.BOOLEAN</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">value</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">swe_type</span><span class="p">:</span> <span class="n">SWEDataTypes</span> <span class="o">=</span> <span class="n">SWEDataTypes</span><span class="o">.</span><span class="n">BOOLEAN</span>
+
+    <span class="k">def</span> <span class="nf">get_value</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">value</span>
+
+    <span class="k">def</span> <span class="nf">set_value</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span></div>
+
+
+<div class="viewcode-block" id="TextComponent"><a class="viewcode-back" href="../../index.html#oshdatacore.component_implementations.TextComponent">[docs]</a><span class="nd">@dataclass</span><span class="p">(</span><span class="n">kw_only</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">class</span> <span class="nc">TextComponent</span><span class="p">(</span><span class="n">DataComponentImpl</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    The “Text” class is used to specify a component with a textual representation</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">        name: The name of the component</span>
+<span class="sd">        label: A human-readable label for the component</span>
+<span class="sd">        definition: A URI that identifies the ontological definition of the component</span>
+<span class="sd">        description: A description of the component</span>
+<span class="sd">        constraint: limits the set of valid values</span>
+<span class="sd">        value: The latest value of the component</span>
+<span class="sd">        swe_type: SWEDataTypes.TEXT</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">constraint</span><span class="p">:</span> <span class="n">AllowedTokens</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">value</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">swe_type</span><span class="p">:</span> <span class="n">SWEDataTypes</span> <span class="o">=</span> <span class="n">SWEDataTypes</span><span class="o">.</span><span class="n">TEXT</span>
+
+    <span class="k">def</span> <span class="nf">datastructure_to_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">schema_dict</span> <span class="o">=</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">datastructure_to_dict</span><span class="p">()</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">constraint</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">schema_dict</span><span class="p">[</span><span class="s1">&#39;constraint&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">constraint</span><span class="o">.</span><span class="n">datastructure_to_dict</span><span class="p">()</span>
+
+        <span class="k">return</span> <span class="n">schema_dict</span>
+
+    <span class="k">def</span> <span class="nf">get_value</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">value</span>
+
+    <span class="k">def</span> <span class="nf">set_value</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span></div>
+
+
+<div class="viewcode-block" id="CategoryComponent"><a class="viewcode-back" href="../../index.html#oshdatacore.component_implementations.CategoryComponent">[docs]</a><span class="nd">@dataclass</span><span class="p">(</span><span class="n">kw_only</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">class</span> <span class="nc">CategoryComponent</span><span class="p">(</span><span class="n">DataComponentImpl</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    The “Category” class is used to specify a scalar data component with a categorical</span>
+<span class="sd">    representation</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">        name: The name of the component</span>
+<span class="sd">        label: A human-readable label for the component</span>
+<span class="sd">        definition: A URI that identifies the ontological definition of the component</span>
+<span class="sd">        description: A description of the component</span>
+<span class="sd">        codespace: dictionary listing and defining all possible values of the component. It is expected that the</span>
+<span class="sd">        dictionary be referenced rather than included inline</span>
+<span class="sd">        constraint: limits the set of valid values</span>
+<span class="sd">        value: The latest value of the component</span>
+<span class="sd">        swe_type: SWEDataTypes.CATEGORY</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">codespace</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">constraint</span><span class="p">:</span> <span class="n">AllowedTokens</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">swe_type</span><span class="p">:</span> <span class="n">SWEDataTypes</span> <span class="o">=</span> <span class="n">SWEDataTypes</span><span class="o">.</span><span class="n">CATEGORY</span>
+    <span class="n">value</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span>
+
+    <span class="k">def</span> <span class="nf">set_allowed_values</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">allowed_values</span><span class="p">:</span> <span class="n">AllowedTokens</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">constraint</span> <span class="o">=</span> <span class="n">allowed_values</span>
+
+    <span class="k">def</span> <span class="nf">add_allowed_value</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">allowed_value</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">constraint</span><span class="o">.</span><span class="n">add_allowed_value</span><span class="p">(</span><span class="n">allowed_value</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">get_value</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">value</span>
+
+    <span class="k">def</span> <span class="nf">set_value</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span></div>
+
+
+<div class="viewcode-block" id="CountComponent"><a class="viewcode-back" href="../../index.html#oshdatacore.component_implementations.CountComponent">[docs]</a><span class="nd">@dataclass</span><span class="p">(</span><span class="n">kw_only</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">class</span> <span class="nc">CountComponent</span><span class="p">(</span><span class="n">DataComponentImpl</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    The “Count” class is used to specify a scalar data component with a discrete countable</span>
+<span class="sd">    representation</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">swe_type</span><span class="p">:</span> <span class="n">SWEDataTypes</span> <span class="o">=</span> <span class="n">SWEDataTypes</span><span class="o">.</span><span class="n">COUNT</span>
+    <span class="n">constraint</span><span class="p">:</span> <span class="n">AllowedValues</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">value</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="kc">None</span>
+
+    <span class="k">def</span> <span class="nf">datastructure_to_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">schema_dict</span> <span class="o">=</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">datastructure_to_dict</span><span class="p">()</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">constraint</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">schema_dict</span><span class="p">[</span><span class="s1">&#39;constraint&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">constraint</span><span class="o">.</span><span class="n">datastructure_to_dict</span><span class="p">()</span>
+
+        <span class="k">return</span> <span class="n">schema_dict</span>
+
+    <span class="k">def</span> <span class="nf">set_allowed_values</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">allowed_values</span><span class="p">:</span> <span class="n">AllowedValues</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">constraint</span> <span class="o">=</span> <span class="n">allowed_values</span>
+
+    <span class="k">def</span> <span class="nf">add_allowed_value</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">allowed_value</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">constraint</span><span class="o">.</span><span class="n">add_allowed_value</span><span class="p">(</span><span class="n">allowed_value</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">get_value</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">value</span>
+
+    <span class="k">def</span> <span class="nf">set_value</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span></div>
+
+
+<div class="viewcode-block" id="QuantityComponent"><a class="viewcode-back" href="../../index.html#oshdatacore.component_implementations.QuantityComponent">[docs]</a><span class="nd">@dataclass</span><span class="p">(</span><span class="n">kw_only</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">class</span> <span class="nc">QuantityComponent</span><span class="p">(</span><span class="n">DataComponentImpl</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    The “Quantity” class is used to specify a component with a continuous numerical</span>
+<span class="sd">    representation</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">uom</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">constraint</span><span class="p">:</span> <span class="n">AllowedValues</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">value</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">swe_type</span><span class="p">:</span> <span class="n">SWEDataTypes</span> <span class="o">=</span> <span class="n">SWEDataTypes</span><span class="o">.</span><span class="n">QUANTITY</span>
+
+    <span class="k">def</span> <span class="nf">datastructure_to_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">schema_dict</span> <span class="o">=</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">datastructure_to_dict</span><span class="p">()</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">uom</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">schema_dict</span><span class="p">[</span><span class="s1">&#39;uom&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;code&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">uom</span><span class="p">}</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">constraint</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">schema_dict</span><span class="p">[</span><span class="s1">&#39;constraint&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">constraint</span><span class="o">.</span><span class="n">datastructure_to_dict</span><span class="p">()</span>
+
+        <span class="k">return</span> <span class="n">schema_dict</span>
+
+    <span class="k">def</span> <span class="nf">set_allowed_values</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">allowed_values</span><span class="p">:</span> <span class="n">AllowedValues</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">constraint</span> <span class="o">=</span> <span class="n">allowed_values</span>
+
+    <span class="k">def</span> <span class="nf">add_allowed_value</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">allowed_value</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">constraint</span><span class="o">.</span><span class="n">add_allowed_value</span><span class="p">(</span><span class="n">allowed_value</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">get_value</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">value</span>
+
+    <span class="k">def</span> <span class="nf">set_value</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span></div>
+
+
+<div class="viewcode-block" id="TimeComponent"><a class="viewcode-back" href="../../index.html#oshdatacore.component_implementations.TimeComponent">[docs]</a><span class="nd">@dataclass</span><span class="p">(</span><span class="n">kw_only</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">class</span> <span class="nc">TimeComponent</span><span class="p">(</span><span class="n">DataComponentImpl</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    The “Time” class is used to specify a component with a date-time representation and</span>
+<span class="sd">    whose value is projected along the axis of a temporal reference frame. This class is also</span>
+<span class="sd">    necessary to specify that a time value is expressed in a calendar system.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">definition</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;http://www.opengis.net/def/property/OGC/0/SamplingTime&#39;</span>
+    <span class="n">reference_time</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">local_frame</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">gmtime</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">uom</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;http://www.opengis.net/def/uom/ISO-8601/0/Gregorian&#39;</span>
+    <span class="n">constraint</span><span class="p">:</span> <span class="n">AllowedValues</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">value</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">swe_type</span><span class="p">:</span> <span class="n">SWEDataTypes</span> <span class="o">=</span> <span class="n">SWEDataTypes</span><span class="o">.</span><span class="n">TIME</span>
+
+    <span class="k">def</span> <span class="nf">datastructure_to_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">schema_dict</span> <span class="o">=</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">datastructure_to_dict</span><span class="p">()</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">uom</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">schema_dict</span><span class="p">[</span><span class="s1">&#39;uom&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;code&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">uom</span><span class="p">}</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">constraint</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">schema_dict</span><span class="p">[</span><span class="s1">&#39;constraint&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">constraint</span><span class="o">.</span><span class="n">datastructure_to_dict</span><span class="p">()</span>
+
+        <span class="k">return</span> <span class="n">schema_dict</span>
+
+    <span class="k">def</span> <span class="nf">get_value</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">value</span>
+
+    <span class="k">def</span> <span class="nf">set_value</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span></div>
+
+
+<span class="c1"># Record Components</span>
+
+<div class="viewcode-block" id="DataRecordComponent"><a class="viewcode-back" href="../../index.html#oshdatacore.component_implementations.DataRecordComponent">[docs]</a><span class="nd">@dataclass</span><span class="p">(</span><span class="n">kw_only</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">class</span> <span class="nc">DataRecordComponent</span><span class="p">(</span><span class="n">DataComponentImpl</span><span class="p">):</span>
+    <span class="n">swe_type</span><span class="p">:</span> <span class="n">SWEDataTypes</span> <span class="o">=</span> <span class="n">SWEDataTypes</span><span class="o">.</span><span class="n">DATA_RECORD</span>
+    <span class="n">fields</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">DataComponentImpl</span><span class="p">]</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="nb">list</span><span class="p">)</span>
+
+    <span class="c1"># def __init__(self, name, label, definition, description=None):</span>
+    <span class="c1">#     self.name = name</span>
+    <span class="c1">#     self.label = label</span>
+    <span class="c1">#     self.definition = definition</span>
+    <span class="c1">#     self.description = description</span>
+    <span class="c1">#     self.type = SWEDataTypes.DATA_RECORD</span>
+    <span class="c1">#     self.fields = []</span>
+
+    <span class="k">def</span> <span class="nf">add_field</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">field</span><span class="p">):</span>
+        <span class="k">if</span> <span class="nb">issubclass</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">field</span><span class="p">),</span> <span class="n">DataComponentImpl</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">fields</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">field</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">field</span>
+
+    <span class="k">def</span> <span class="nf">datastructure_to_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">schema_dict</span> <span class="o">=</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">datastructure_to_dict</span><span class="p">()</span>
+
+        <span class="n">field_dicts</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">field</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">fields</span><span class="p">:</span>
+            <span class="n">field_dicts</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">field</span><span class="o">.</span><span class="n">datastructure_to_dict</span><span class="p">())</span>
+
+        <span class="n">schema_dict</span><span class="p">[</span><span class="s1">&#39;fields&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">field_dicts</span>
+
+        <span class="k">return</span> <span class="n">schema_dict</span>
+
+    <span class="k">def</span> <span class="nf">get_fields</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">fields</span>
+
+    <span class="k">def</span> <span class="nf">get_num_fields</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">fields</span><span class="p">)</span>
+
+<div class="viewcode-block" id="DataRecordComponent.flat_id_to_field_map"><a class="viewcode-back" href="../../index.html#oshdatacore.component_implementations.DataRecordComponent.flat_id_to_field_map">[docs]</a>    <span class="k">def</span> <span class="nf">flat_id_to_field_map</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns a dictionary mapping the UUID of each field to the field itself.</span>
+<span class="sd">        :return:</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">field_map</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">fields</span><span class="p">:</span>
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">DataRecordComponent</span><span class="p">):</span>
+                <span class="n">field_map</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">flat_id_to_field_map</span><span class="p">())</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">field_map</span><span class="p">[</span><span class="n">f</span><span class="o">.</span><span class="n">get_uuid</span><span class="p">()]</span> <span class="o">=</span> <span class="n">f</span>
+        <span class="k">return</span> <span class="n">field_map</span></div>
+
+    <span class="k">def</span> <span class="nf">name_to_field_map</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">{</span><span class="n">field</span><span class="o">.</span><span class="n">name</span><span class="p">:</span> <span class="n">field</span> <span class="k">for</span> <span class="n">field</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">fields</span><span class="p">}</span>
+
+    <span class="k">def</span> <span class="nf">get_value</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">{</span><span class="n">name</span><span class="p">:</span> <span class="n">value</span> <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">([</span><span class="n">field</span><span class="o">.</span><span class="n">name</span> <span class="k">for</span> <span class="n">field</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">fields</span><span class="p">],</span>
+                                                   <span class="p">[</span><span class="n">field</span><span class="o">.</span><span class="n">get_value</span><span class="p">()</span> <span class="k">for</span> <span class="n">field</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">fields</span><span class="p">])}</span>
+
+<div class="viewcode-block" id="DataRecordComponent.set_value"><a class="viewcode-back" href="../../index.html#oshdatacore.component_implementations.DataRecordComponent.set_value">[docs]</a>    <span class="k">def</span> <span class="nf">set_value</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">        :param value: dictionary of field names to values</span>
+<span class="sd">        :return:</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">value</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="k">for</span> <span class="n">field</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">fields</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">field</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="n">k</span><span class="p">:</span>
+                    <span class="n">field</span><span class="o">.</span><span class="n">set_value</span><span class="p">(</span><span class="n">v</span><span class="p">)</span></div></div>
+
+
+<div class="viewcode-block" id="VectorComponent"><a class="viewcode-back" href="../../index.html#oshdatacore.component_implementations.VectorComponent">[docs]</a><span class="k">class</span> <span class="nc">VectorComponent</span><span class="p">(</span><span class="n">DataComponentImpl</span><span class="p">):</span>
+    <span class="n">referenceFrame</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">localFrame</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">coordinates</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="n">DataComponentImpl</span><span class="p">]</span>
+    <span class="n">swe_type</span> <span class="o">=</span> <span class="n">SWEDataTypes</span><span class="o">.</span><span class="n">VECTOR</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">label</span><span class="p">,</span> <span class="n">definition</span><span class="p">,</span> <span class="n">reference_frame</span><span class="p">,</span> <span class="n">local_frame</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">label</span> <span class="o">=</span> <span class="n">label</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">referenceFrame</span> <span class="o">=</span> <span class="n">reference_frame</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">localFrame</span> <span class="o">=</span> <span class="n">local_frame</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">coordinates</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">definition</span> <span class="o">=</span> <span class="n">definition</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">description</span> <span class="o">=</span> <span class="n">description</span>
+
+    <span class="k">def</span> <span class="nf">add_coord</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">axis_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">coordinate</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">coordinates</span><span class="p">[</span><span class="n">axis_id</span><span class="p">]</span> <span class="o">=</span> <span class="n">coordinate</span>
+
+    <span class="k">def</span> <span class="nf">datastructure_to_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">schema_dict</span> <span class="o">=</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">datastructure_to_dict</span><span class="p">()</span>
+        <span class="n">schema_dict</span><span class="p">[</span><span class="s1">&#39;referenceFrame&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">referenceFrame</span>
+        <span class="n">schema_dict</span><span class="p">[</span><span class="s1">&#39;localFrame&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">localFrame</span>
+
+        <span class="n">coord_dicts</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">axis</span><span class="p">,</span> <span class="n">coord</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">coordinates</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="n">coord_dicts</span><span class="o">.</span><span class="n">append</span><span class="p">({</span>
+                <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="n">coord</span><span class="o">.</span><span class="n">name</span><span class="p">,</span>
+                <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="n">coord</span><span class="o">.</span><span class="n">swe_type</span><span class="o">.</span><span class="n">value</span><span class="p">,</span>
+                <span class="s1">&#39;definition&#39;</span><span class="p">:</span> <span class="n">coord</span><span class="o">.</span><span class="n">definition</span><span class="p">,</span>
+                <span class="s1">&#39;axisID&#39;</span><span class="p">:</span> <span class="n">axis</span><span class="p">,</span>
+                <span class="s1">&#39;label&#39;</span><span class="p">:</span> <span class="n">coord</span><span class="o">.</span><span class="n">label</span><span class="p">,</span>
+                <span class="s1">&#39;uom&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;code&#39;</span><span class="p">:</span> <span class="n">coord</span><span class="o">.</span><span class="n">uom</span><span class="p">}</span>
+            <span class="p">})</span>
+
+        <span class="n">schema_dict</span><span class="p">[</span><span class="s1">&#39;coordinates&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">coord_dicts</span>
+
+        <span class="k">return</span> <span class="n">schema_dict</span>
+
+    <span class="k">def</span> <span class="nf">get_value</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">{</span><span class="n">axis</span><span class="p">:</span> <span class="n">coord</span><span class="o">.</span><span class="n">get_value</span><span class="p">()</span> <span class="k">for</span> <span class="p">(</span><span class="n">axis</span><span class="p">,</span> <span class="n">coord</span><span class="p">)</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">coordinates</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
+
+    <span class="k">def</span> <span class="nf">set_value</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">axis</span><span class="p">,</span> <span class="n">coord</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">coordinates</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="n">coord</span><span class="o">.</span><span class="n">set_value</span><span class="p">(</span><span class="n">value</span><span class="p">[</span><span class="n">axis</span><span class="p">])</span></div>
+
+
+<span class="c1"># Block Components</span>
+<div class="viewcode-block" id="DataArrayComponent"><a class="viewcode-back" href="../../index.html#oshdatacore.component_implementations.DataArrayComponent">[docs]</a><span class="k">class</span> <span class="nc">DataArrayComponent</span><span class="p">(</span><span class="n">DataComponentImpl</span><span class="p">):</span>
+    <span class="n">swe_type</span> <span class="o">=</span> <span class="n">SWEDataTypes</span><span class="o">.</span><span class="n">DATA_ARRAY</span>
+    <span class="n">element_type</span><span class="p">:</span> <span class="n">DataComponentImpl</span>
+    <span class="n">element_count</span><span class="p">:</span> <span class="n">CountComponent</span>  <span class="c1"># This should be able to be set to another output that is Type=COUNT</span>
+    <span class="n">components</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">DataComponentImpl</span><span class="p">]</span>
+    <span class="n">values</span><span class="p">:</span> <span class="nb">list</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">label</span><span class="p">,</span> <span class="n">definition</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns a new DataArrayComponent that is not yet ready for use.  The element_type and element_count must be set</span>
+<span class="sd">        separately.</span>
+<span class="sd">        :param name: machine name of the component</span>
+<span class="sd">        :param label: human-readable name of the component</span>
+<span class="sd">        :param definition: URI of the definition of the component</span>
+<span class="sd">        :param description: brief description of the component</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">label</span> <span class="o">=</span> <span class="n">label</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">definition</span> <span class="o">=</span> <span class="n">definition</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">description</span> <span class="o">=</span> <span class="n">description</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">components</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">element_count</span> <span class="o">=</span> <span class="n">CountComponent</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;elementCount&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Element Count&#39;</span><span class="p">,</span>
+                                            <span class="n">definition</span><span class="o">=</span><span class="s1">&#39;http://www.opengis.net/def/property/OGC/0/ElementCount&#39;</span><span class="p">,</span>
+                                            <span class="n">value</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">add_component</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">new_comp</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">element_count</span><span class="o">.</span><span class="n">value</span> <span class="ow">is</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">components</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">new_comp</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">element_count</span><span class="o">.</span><span class="n">value</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">new_comp</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">components</span><span class="p">[</span><span class="mi">0</span><span class="p">])):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">components</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">new_comp</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">element_count</span><span class="o">.</span><span class="n">value</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">&#39;Component type does not match existing components&#39;</span><span class="p">)</span>
+
+<div class="viewcode-block" id="DataArrayComponent.set_component_template_and_size"><a class="viewcode-back" href="../../index.html#oshdatacore.component_implementations.DataArrayComponent.set_component_template_and_size">[docs]</a>    <span class="k">def</span> <span class="nf">set_component_template_and_size</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">size</span><span class="p">,</span> <span class="n">comp_template</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Set the component template and size of the array.</span>
+<span class="sd">        WARNING: This can take a long time for large and complex templates/sizes.</span>
+<span class="sd">        :param size:</span>
+<span class="sd">        :param comp_template:</span>
+<span class="sd">        :return:</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">element_type</span> <span class="o">=</span> <span class="n">comp_template</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">size</span><span class="p">):</span>
+            <span class="c1"># TODO: Instead of copying the template, consider spoofing the output to appear as the template dictates,</span>
+            <span class="c1">#  but use a basic datastructure</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">add_component</span><span class="p">(</span><span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="n">comp_template</span><span class="p">))</span></div>
+
+    <span class="k">def</span> <span class="nf">get_value</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">new_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">value</span> <span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">get_value</span><span class="p">(),</span> <span class="bp">self</span><span class="o">.</span><span class="n">components</span><span class="p">)]</span>
+        <span class="k">return</span> <span class="n">new_list</span>
+
+<div class="viewcode-block" id="DataArrayComponent.set_value"><a class="viewcode-back" href="../../index.html#oshdatacore.component_implementations.DataArrayComponent.set_value">[docs]</a>    <span class="k">def</span> <span class="nf">set_value</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">values</span><span class="p">:</span> <span class="nb">list</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Set the value of the component.  This will set the value of each component in the array. This datastructure can</span>
+<span class="sd">        be complex if the DataArray contains nested composite types (eq. DataRecords, DataArrays, or Vectors).</span>
+<span class="sd">        :param values:</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">element_type</span><span class="p">)</span> <span class="ow">in</span> <span class="p">[</span><span class="n">DataRecordComponent</span><span class="p">,</span> <span class="n">DataArrayComponent</span><span class="p">,</span> <span class="n">VectorComponent</span><span class="p">]:</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">values</span><span class="p">)):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">components</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">set_value</span><span class="p">(</span><span class="n">values</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">values</span><span class="p">)):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">components</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">set_value</span><span class="p">(</span><span class="n">values</span><span class="p">[</span><span class="n">i</span><span class="p">])</span></div>
+
+    <span class="k">def</span> <span class="nf">datastructure_to_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">schema_dict</span> <span class="o">=</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">datastructure_to_dict</span><span class="p">()</span>
+
+        <span class="n">schema_dict</span><span class="p">[</span><span class="s1">&#39;elementCount&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">element_count</span><span class="o">.</span><span class="n">swe_type</span><span class="o">.</span><span class="n">value</span><span class="p">,</span>
+            <span class="s1">&#39;definition&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">element_count</span><span class="o">.</span><span class="n">definition</span><span class="p">,</span>
+            <span class="s1">&#39;value&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">element_count</span><span class="o">.</span><span class="n">value</span><span class="p">,</span>
+        <span class="p">}</span>
+        <span class="n">schema_dict</span><span class="p">[</span><span class="s1">&#39;elementType&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">element_type</span><span class="o">.</span><span class="n">label</span><span class="p">,</span>
+            <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">element_type</span><span class="o">.</span><span class="n">swe_type</span><span class="o">.</span><span class="n">value</span><span class="p">,</span>
+            <span class="s1">&#39;definition&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">element_type</span><span class="o">.</span><span class="n">definition</span><span class="p">,</span>
+            <span class="s1">&#39;description&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">element_type</span><span class="o">.</span><span class="n">description</span><span class="p">,</span>
+        <span class="p">}</span>
+
+        <span class="k">return</span> <span class="n">schema_dict</span>
+
+    <span class="k">def</span> <span class="nf">get_uuid_value_map</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">uuid_list</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">comp</span><span class="p">:</span> <span class="n">comp</span><span class="o">.</span><span class="n">get_uuid</span><span class="p">(),</span> <span class="bp">self</span><span class="o">.</span><span class="n">components</span><span class="p">))</span>
+        <span class="n">value_list</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">comp</span><span class="p">:</span> <span class="n">comp</span><span class="o">.</span><span class="n">get_value</span><span class="p">(),</span> <span class="bp">self</span><span class="o">.</span><span class="n">components</span><span class="p">))</span>
+        <span class="n">uuid_value_map</span> <span class="o">=</span> <span class="p">{</span><span class="n">uuid</span><span class="p">:</span> <span class="n">value</span> <span class="k">for</span> <span class="p">(</span><span class="n">uuid</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">uuid_list</span><span class="p">,</span> <span class="n">value_list</span><span class="p">)}</span>
+        <span class="k">return</span> <span class="n">uuid_value_map</span></div>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Ian Patterson.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Welcome to PyOSHDataCore’s documentation! &mdash; PyOSHDataCore 0.0.1-alpha.20 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="#" class="icon icon-home">
+            PyOSHDataCore
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">Welcome to PyOSHDataCore’s documentation!</a></li>
+<li><a class="reference internal" href="#indices-and-tables">Indices and tables</a></li>
+<li><a class="reference internal" href="#module-oshdatacore.datamodels_core">DataCore Datamodels</a><ul>
+<li><a class="reference internal" href="#oshdatacore.datamodels_core.DataComponentImpl"><code class="docutils literal notranslate"><span class="pre">DataComponentImpl</span></code></a><ul>
+<li><a class="reference internal" href="#oshdatacore.datamodels_core.DataComponentImpl.definition"><code class="docutils literal notranslate"><span class="pre">DataComponentImpl.definition</span></code></a></li>
+<li><a class="reference internal" href="#oshdatacore.datamodels_core.DataComponentImpl.name"><code class="docutils literal notranslate"><span class="pre">DataComponentImpl.name</span></code></a></li>
+<li><a class="reference internal" href="#oshdatacore.datamodels_core.DataComponentImpl.optional"><code class="docutils literal notranslate"><span class="pre">DataComponentImpl.optional</span></code></a></li>
+<li><a class="reference internal" href="#oshdatacore.datamodels_core.DataComponentImpl.swe_type"><code class="docutils literal notranslate"><span class="pre">DataComponentImpl.swe_type</span></code></a></li>
+<li><a class="reference internal" href="#oshdatacore.datamodels_core.DataComponentImpl.updatable"><code class="docutils literal notranslate"><span class="pre">DataComponentImpl.updatable</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#oshdatacore.datamodels_core.SWEDataTypes"><code class="docutils literal notranslate"><span class="pre">SWEDataTypes</span></code></a></li>
+<li><a class="reference internal" href="#oshdatacore.datamodels_core.SWEImpl"><code class="docutils literal notranslate"><span class="pre">SWEImpl</span></code></a><ul>
+<li><a class="reference internal" href="#oshdatacore.datamodels_core.SWEImpl.extension"><code class="docutils literal notranslate"><span class="pre">SWEImpl.extension</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#oshdatacore.datamodels_core.SweIdentifiableImpl"><code class="docutils literal notranslate"><span class="pre">SweIdentifiableImpl</span></code></a><ul>
+<li><a class="reference internal" href="#oshdatacore.datamodels_core.SweIdentifiableImpl.description"><code class="docutils literal notranslate"><span class="pre">SweIdentifiableImpl.description</span></code></a></li>
+<li><a class="reference internal" href="#oshdatacore.datamodels_core.SweIdentifiableImpl.identifier"><code class="docutils literal notranslate"><span class="pre">SweIdentifiableImpl.identifier</span></code></a></li>
+<li><a class="reference internal" href="#oshdatacore.datamodels_core.SweIdentifiableImpl.label"><code class="docutils literal notranslate"><span class="pre">SweIdentifiableImpl.label</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-oshdatacore.component_implementations">DataCore Components</a><ul>
+<li><a class="reference internal" href="#oshdatacore.component_implementations.BooleanComponent"><code class="docutils literal notranslate"><span class="pre">BooleanComponent</span></code></a><ul>
+<li><a class="reference internal" href="#oshdatacore.component_implementations.BooleanComponent.swe_type"><code class="docutils literal notranslate"><span class="pre">BooleanComponent.swe_type</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#oshdatacore.component_implementations.CategoryComponent"><code class="docutils literal notranslate"><span class="pre">CategoryComponent</span></code></a><ul>
+<li><a class="reference internal" href="#oshdatacore.component_implementations.CategoryComponent.swe_type"><code class="docutils literal notranslate"><span class="pre">CategoryComponent.swe_type</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#oshdatacore.component_implementations.CountComponent"><code class="docutils literal notranslate"><span class="pre">CountComponent</span></code></a><ul>
+<li><a class="reference internal" href="#oshdatacore.component_implementations.CountComponent.swe_type"><code class="docutils literal notranslate"><span class="pre">CountComponent.swe_type</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#oshdatacore.component_implementations.DataArrayComponent"><code class="docutils literal notranslate"><span class="pre">DataArrayComponent</span></code></a><ul>
+<li><a class="reference internal" href="#oshdatacore.component_implementations.DataArrayComponent.set_component_template_and_size"><code class="docutils literal notranslate"><span class="pre">DataArrayComponent.set_component_template_and_size()</span></code></a></li>
+<li><a class="reference internal" href="#oshdatacore.component_implementations.DataArrayComponent.set_value"><code class="docutils literal notranslate"><span class="pre">DataArrayComponent.set_value()</span></code></a></li>
+<li><a class="reference internal" href="#oshdatacore.component_implementations.DataArrayComponent.swe_type"><code class="docutils literal notranslate"><span class="pre">DataArrayComponent.swe_type</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#oshdatacore.component_implementations.DataRecordComponent"><code class="docutils literal notranslate"><span class="pre">DataRecordComponent</span></code></a><ul>
+<li><a class="reference internal" href="#oshdatacore.component_implementations.DataRecordComponent.flat_id_to_field_map"><code class="docutils literal notranslate"><span class="pre">DataRecordComponent.flat_id_to_field_map()</span></code></a></li>
+<li><a class="reference internal" href="#oshdatacore.component_implementations.DataRecordComponent.set_value"><code class="docutils literal notranslate"><span class="pre">DataRecordComponent.set_value()</span></code></a></li>
+<li><a class="reference internal" href="#oshdatacore.component_implementations.DataRecordComponent.swe_type"><code class="docutils literal notranslate"><span class="pre">DataRecordComponent.swe_type</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#oshdatacore.component_implementations.QuantityComponent"><code class="docutils literal notranslate"><span class="pre">QuantityComponent</span></code></a><ul>
+<li><a class="reference internal" href="#oshdatacore.component_implementations.QuantityComponent.swe_type"><code class="docutils literal notranslate"><span class="pre">QuantityComponent.swe_type</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#oshdatacore.component_implementations.TextComponent"><code class="docutils literal notranslate"><span class="pre">TextComponent</span></code></a><ul>
+<li><a class="reference internal" href="#oshdatacore.component_implementations.TextComponent.swe_type"><code class="docutils literal notranslate"><span class="pre">TextComponent.swe_type</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#oshdatacore.component_implementations.TimeComponent"><code class="docutils literal notranslate"><span class="pre">TimeComponent</span></code></a><ul>
+<li><a class="reference internal" href="#oshdatacore.component_implementations.TimeComponent.definition"><code class="docutils literal notranslate"><span class="pre">TimeComponent.definition</span></code></a></li>
+<li><a class="reference internal" href="#oshdatacore.component_implementations.TimeComponent.swe_type"><code class="docutils literal notranslate"><span class="pre">TimeComponent.swe_type</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#oshdatacore.component_implementations.VectorComponent"><code class="docutils literal notranslate"><span class="pre">VectorComponent</span></code></a><ul>
+<li><a class="reference internal" href="#oshdatacore.component_implementations.VectorComponent.swe_type"><code class="docutils literal notranslate"><span class="pre">VectorComponent.swe_type</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-oshdatacore.encoding">DataCore Encoding</a><ul>
+<li><a class="reference internal" href="#oshdatacore.encoding.AbstractEncoding"><code class="docutils literal notranslate"><span class="pre">AbstractEncoding</span></code></a></li>
+<li><a class="reference internal" href="#oshdatacore.encoding.BinaryEncoding"><code class="docutils literal notranslate"><span class="pre">BinaryEncoding</span></code></a></li>
+<li><a class="reference internal" href="#oshdatacore.encoding.ByteEncoding"><code class="docutils literal notranslate"><span class="pre">ByteEncoding</span></code></a></li>
+<li><a class="reference internal" href="#oshdatacore.encoding.ByteOrder"><code class="docutils literal notranslate"><span class="pre">ByteOrder</span></code></a></li>
+<li><a class="reference internal" href="#oshdatacore.encoding.TextEncoding"><code class="docutils literal notranslate"><span class="pre">TextEncoding</span></code></a></li>
+</ul>
+</li>
+</ul>
+</div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="#">PyOSHDataCore</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="#" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Welcome to PyOSHDataCore’s documentation!</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <p>sphinx-quickstart on Mon Mar 27 21:48:41 2023.
+You can adapt this file completely to your liking, but it should at least
+contain the root <cite>toctree</cite> directive.</p>
+<section id="welcome-to-pyoshdatacore-s-documentation">
+<h1>Welcome to PyOSHDataCore’s documentation!<a class="headerlink" href="#welcome-to-pyoshdatacore-s-documentation" title="Permalink to this heading"></a></h1>
+<div class="toctree-wrapper compound">
+</div>
+</section>
+<section id="indices-and-tables">
+<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this heading"></a></h1>
+<ul class="simple">
+<li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></p></li>
+<li><p><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></p></li>
+<li><p><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></p></li>
+</ul>
+</section>
+<section id="module-oshdatacore.datamodels_core">
+<span id="datacore-datamodels"></span><h1>DataCore Datamodels<a class="headerlink" href="#module-oshdatacore.datamodels_core" title="Permalink to this heading"></a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="oshdatacore.datamodels_core.DataComponentImpl">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">oshdatacore.datamodels_core.</span></span><span class="sig-name descname"><span class="pre">DataComponentImpl</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extension</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">identifier</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">description</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">definition</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">optional</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">updatable</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">swe_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#oshdatacore.datamodels_core.SWEDataTypes" title="oshdatacore.datamodels_core.SWEDataTypes"><span class="pre">SWEDataTypes</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/oshdatacore/datamodels_core.html#DataComponentImpl"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#oshdatacore.datamodels_core.DataComponentImpl" title="Permalink to this definition"></a></dt>
+<dd><p>This class should not be instantiated, just inherited from</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="oshdatacore.datamodels_core.DataComponentImpl.definition">
+<span class="sig-name descname"><span class="pre">definition</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#oshdatacore.datamodels_core.DataComponentImpl.definition" title="Permalink to this definition"></a></dt>
+<dd><p>The “definition” attribute identifies the property (often an observed property in our
+context) that the data component represents by using a scoped name. It should map to a
+controlled term defined in an (web accessible) dictionary, registry or ontology. Such
+terms provide the formal textual definition agreed upon by one or more communities,
+eventually illustrated by pictures and diagrams as well as additional semantic information
+such as relationships to units and other concepts, ontological mappings, etc.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="oshdatacore.datamodels_core.DataComponentImpl.name">
+<span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#oshdatacore.datamodels_core.DataComponentImpl.name" title="Permalink to this definition"></a></dt>
+<dd><p>The name attribute is meant to hold a short, descriptive name</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="oshdatacore.datamodels_core.DataComponentImpl.optional">
+<span class="sig-name descname"><span class="pre">optional</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">False</span></em><a class="headerlink" href="#oshdatacore.datamodels_core.DataComponentImpl.optional" title="Permalink to this definition"></a></dt>
+<dd><p>The “optional” attribute is an optional flag indicating if the component value can be
+omitted in the data stream. It is only meaningful if the component is used as a schema
+descriptor (i.e. not for a component containing an inline value). It is ‘false’ by default.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="oshdatacore.datamodels_core.DataComponentImpl.swe_type">
+<span class="sig-name descname"><span class="pre">swe_type</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#oshdatacore.datamodels_core.SWEDataTypes" title="oshdatacore.datamodels_core.SWEDataTypes"><span class="pre">SWEDataTypes</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#oshdatacore.datamodels_core.DataComponentImpl.swe_type" title="Permalink to this definition"></a></dt>
+<dd><p>The “type” attribute is used to specify the component type. It is mandatory for all class that inherit from 
+DataComponentImpl to use a default value for this attribute. It is name swe_type here to avoid conflicts with
+the python type() function.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="oshdatacore.datamodels_core.DataComponentImpl.updatable">
+<span class="sig-name descname"><span class="pre">updatable</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">False</span></em><a class="headerlink" href="#oshdatacore.datamodels_core.DataComponentImpl.updatable" title="Permalink to this definition"></a></dt>
+<dd><p>The “updatable” attribute is an optional flag indicating if the component value is fixed or
+can be updated. It is only applicable if the data component is used to define the input of a
+process (i.e. when used to define the input or parameter of a service, process or sensor,
+but not when used to define the content of a dataset).</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="oshdatacore.datamodels_core.SWEDataTypes">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">oshdatacore.datamodels_core.</span></span><span class="sig-name descname"><span class="pre">SWEDataTypes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/oshdatacore/datamodels_core.html#SWEDataTypes"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#oshdatacore.datamodels_core.SWEDataTypes" title="Permalink to this definition"></a></dt>
+<dd><p>Data types as defined in the SWE Common Data Model.</p>
+<p>NOTE: The list here may not be complete,
+and those listed may not be implemented though support for every type is planned</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="oshdatacore.datamodels_core.SWEImpl">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">oshdatacore.datamodels_core.</span></span><span class="sig-name descname"><span class="pre">SWEImpl</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extension</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/oshdatacore/datamodels_core.html#SWEImpl"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#oshdatacore.datamodels_core.SWEImpl" title="Permalink to this definition"></a></dt>
+<dd><p>This class should not be instantiated, just inherited from</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="oshdatacore.datamodels_core.SWEImpl.extension">
+<span class="sig-name descname"><span class="pre">extension</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#oshdatacore.datamodels_core.SWEImpl.extension" title="Permalink to this definition"></a></dt>
+<dd><p>The “extension” attribute is used as a container for future extensions.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="oshdatacore.datamodels_core.SweIdentifiableImpl">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">oshdatacore.datamodels_core.</span></span><span class="sig-name descname"><span class="pre">SweIdentifiableImpl</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extension</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">identifier</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">description</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/oshdatacore/datamodels_core.html#SweIdentifiableImpl"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#oshdatacore.datamodels_core.SweIdentifiableImpl" title="Permalink to this definition"></a></dt>
+<dd><p>This class should not be instantiated, just inherited from</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="oshdatacore.datamodels_core.SweIdentifiableImpl.description">
+<span class="sig-name descname"><span class="pre">description</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">''</span></em><a class="headerlink" href="#oshdatacore.datamodels_core.SweIdentifiableImpl.description" title="Permalink to this definition"></a></dt>
+<dd><p>Description can carry any length of plain text</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="oshdatacore.datamodels_core.SweIdentifiableImpl.identifier">
+<span class="sig-name descname"><span class="pre">identifier</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#oshdatacore.datamodels_core.SweIdentifiableImpl.identifier" title="Permalink to this definition"></a></dt>
+<dd><p>The optional “identifier” attribute allows assigning a unique identifier to the component,
+so that it can be referenced later on. It can be used, for example, when defining the
+unique identifier of a universal constant.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="oshdatacore.datamodels_core.SweIdentifiableImpl.label">
+<span class="sig-name descname"><span class="pre">label</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#oshdatacore.datamodels_core.SweIdentifiableImpl.label" title="Permalink to this definition"></a></dt>
+<dd><p>The label attribute is meant to hold a short, descriptive name</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-oshdatacore.component_implementations">
+<span id="datacore-components"></span><h1>DataCore Components<a class="headerlink" href="#module-oshdatacore.component_implementations" title="Permalink to this heading"></a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="oshdatacore.component_implementations.BooleanComponent">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">oshdatacore.component_implementations.</span></span><span class="sig-name descname"><span class="pre">BooleanComponent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extension</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">identifier</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">description</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">definition</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">optional</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">updatable</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">swe_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#oshdatacore.datamodels_core.SWEDataTypes" title="oshdatacore.datamodels_core.SWEDataTypes"><span class="pre">SWEDataTypes</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">SWEDataTypes.BOOLEAN</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/oshdatacore/component_implementations.html#BooleanComponent"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#oshdatacore.component_implementations.BooleanComponent" title="Permalink to this definition"></a></dt>
+<dd><p>The “Boolean” class is used to specify a scalar data component with a Boolean
+representation</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><p>name: The name of the component
+label: A human-readable label for the component
+definition: A URI that identifies the ontological definition of the component
+description: A description of the component
+value: The latest value of the component
+swe_type: SWEDataTypes.BOOLEAN</p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="oshdatacore.component_implementations.BooleanComponent.swe_type">
+<span class="sig-name descname"><span class="pre">swe_type</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#oshdatacore.datamodels_core.SWEDataTypes" title="oshdatacore.datamodels_core.SWEDataTypes"><span class="pre">SWEDataTypes</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Boolean'</span></em><a class="headerlink" href="#oshdatacore.component_implementations.BooleanComponent.swe_type" title="Permalink to this definition"></a></dt>
+<dd><p>The “type” attribute is used to specify the component type. It is mandatory for all class that inherit from 
+DataComponentImpl to use a default value for this attribute. It is name swe_type here to avoid conflicts with
+the python type() function.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="oshdatacore.component_implementations.CategoryComponent">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">oshdatacore.component_implementations.</span></span><span class="sig-name descname"><span class="pre">CategoryComponent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extension</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">identifier</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">description</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">definition</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">optional</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">updatable</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">swe_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#oshdatacore.datamodels_core.SWEDataTypes" title="oshdatacore.datamodels_core.SWEDataTypes"><span class="pre">SWEDataTypes</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">SWEDataTypes.CATEGORY</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">codespace</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">constraint</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">AllowedTokens</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/oshdatacore/component_implementations.html#CategoryComponent"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#oshdatacore.component_implementations.CategoryComponent" title="Permalink to this definition"></a></dt>
+<dd><p>The “Category” class is used to specify a scalar data component with a categorical
+representation</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><p>name: The name of the component
+label: A human-readable label for the component
+definition: A URI that identifies the ontological definition of the component
+description: A description of the component
+codespace: dictionary listing and defining all possible values of the component. It is expected that the
+dictionary be referenced rather than included inline
+constraint: limits the set of valid values
+value: The latest value of the component
+swe_type: SWEDataTypes.CATEGORY</p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="oshdatacore.component_implementations.CategoryComponent.swe_type">
+<span class="sig-name descname"><span class="pre">swe_type</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#oshdatacore.datamodels_core.SWEDataTypes" title="oshdatacore.datamodels_core.SWEDataTypes"><span class="pre">SWEDataTypes</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Category'</span></em><a class="headerlink" href="#oshdatacore.component_implementations.CategoryComponent.swe_type" title="Permalink to this definition"></a></dt>
+<dd><p>The “type” attribute is used to specify the component type. It is mandatory for all class that inherit from 
+DataComponentImpl to use a default value for this attribute. It is name swe_type here to avoid conflicts with
+the python type() function.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="oshdatacore.component_implementations.CountComponent">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">oshdatacore.component_implementations.</span></span><span class="sig-name descname"><span class="pre">CountComponent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extension</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">identifier</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">description</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">definition</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">optional</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">updatable</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">swe_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#oshdatacore.datamodels_core.SWEDataTypes" title="oshdatacore.datamodels_core.SWEDataTypes"><span class="pre">SWEDataTypes</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">SWEDataTypes.COUNT</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">constraint</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">AllowedValues</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/oshdatacore/component_implementations.html#CountComponent"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#oshdatacore.component_implementations.CountComponent" title="Permalink to this definition"></a></dt>
+<dd><p>The “Count” class is used to specify a scalar data component with a discrete countable
+representation</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="oshdatacore.component_implementations.CountComponent.swe_type">
+<span class="sig-name descname"><span class="pre">swe_type</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#oshdatacore.datamodels_core.SWEDataTypes" title="oshdatacore.datamodels_core.SWEDataTypes"><span class="pre">SWEDataTypes</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Count'</span></em><a class="headerlink" href="#oshdatacore.component_implementations.CountComponent.swe_type" title="Permalink to this definition"></a></dt>
+<dd><p>The “type” attribute is used to specify the component type. It is mandatory for all class that inherit from 
+DataComponentImpl to use a default value for this attribute. It is name swe_type here to avoid conflicts with
+the python type() function.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="oshdatacore.component_implementations.DataArrayComponent">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">oshdatacore.component_implementations.</span></span><span class="sig-name descname"><span class="pre">DataArrayComponent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">definition</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">description</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/oshdatacore/component_implementations.html#DataArrayComponent"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#oshdatacore.component_implementations.DataArrayComponent" title="Permalink to this definition"></a></dt>
+<dd><dl class="py method">
+<dt class="sig sig-object py" id="oshdatacore.component_implementations.DataArrayComponent.set_component_template_and_size">
+<span class="sig-name descname"><span class="pre">set_component_template_and_size</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">size</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">comp_template</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/oshdatacore/component_implementations.html#DataArrayComponent.set_component_template_and_size"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#oshdatacore.component_implementations.DataArrayComponent.set_component_template_and_size" title="Permalink to this definition"></a></dt>
+<dd><p>Set the component template and size of the array.
+WARNING: This can take a long time for large and complex templates/sizes.
+:param size:
+:param comp_template:
+:return:</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="oshdatacore.component_implementations.DataArrayComponent.set_value">
+<span class="sig-name descname"><span class="pre">set_value</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">values</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/oshdatacore/component_implementations.html#DataArrayComponent.set_value"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#oshdatacore.component_implementations.DataArrayComponent.set_value" title="Permalink to this definition"></a></dt>
+<dd><p>Set the value of the component.  This will set the value of each component in the array. This datastructure can
+be complex if the DataArray contains nested composite types (eq. DataRecords, DataArrays, or Vectors).
+:param values:</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="oshdatacore.component_implementations.DataArrayComponent.swe_type">
+<span class="sig-name descname"><span class="pre">swe_type</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#oshdatacore.datamodels_core.SWEDataTypes" title="oshdatacore.datamodels_core.SWEDataTypes"><span class="pre">SWEDataTypes</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'DataArray'</span></em><a class="headerlink" href="#oshdatacore.component_implementations.DataArrayComponent.swe_type" title="Permalink to this definition"></a></dt>
+<dd><p>The “type” attribute is used to specify the component type. It is mandatory for all class that inherit from 
+DataComponentImpl to use a default value for this attribute. It is name swe_type here to avoid conflicts with
+the python type() function.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="oshdatacore.component_implementations.DataRecordComponent">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">oshdatacore.component_implementations.</span></span><span class="sig-name descname"><span class="pre">DataRecordComponent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extension:</span> <span class="pre">str</span> <span class="pre">=</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">identifier:</span> <span class="pre">str</span> <span class="pre">=</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label:</span> <span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">description:</span> <span class="pre">str</span> <span class="pre">=</span> <span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name:</span> <span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">definition:</span> <span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">optional:</span> <span class="pre">bool</span> <span class="pre">=</span> <span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">updatable:</span> <span class="pre">bool</span> <span class="pre">=</span> <span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">swe_type:</span> <span class="pre">oshdatacore.datamodels_core.SWEDataTypes</span> <span class="pre">=</span> <span class="pre">&lt;SWEDataTypes.DATA_RECORD:</span> <span class="pre">'DataRecord'&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fields:</span> <span class="pre">list[oshdatacore.datamodels_core.DataComponentImpl]</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/oshdatacore/component_implementations.html#DataRecordComponent"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#oshdatacore.component_implementations.DataRecordComponent" title="Permalink to this definition"></a></dt>
+<dd><dl class="py method">
+<dt class="sig sig-object py" id="oshdatacore.component_implementations.DataRecordComponent.flat_id_to_field_map">
+<span class="sig-name descname"><span class="pre">flat_id_to_field_map</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/oshdatacore/component_implementations.html#DataRecordComponent.flat_id_to_field_map"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#oshdatacore.component_implementations.DataRecordComponent.flat_id_to_field_map" title="Permalink to this definition"></a></dt>
+<dd><p>Returns a dictionary mapping the UUID of each field to the field itself.
+:return:</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="oshdatacore.component_implementations.DataRecordComponent.set_value">
+<span class="sig-name descname"><span class="pre">set_value</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/oshdatacore/component_implementations.html#DataRecordComponent.set_value"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#oshdatacore.component_implementations.DataRecordComponent.set_value" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>value</strong> – dictionary of field names to values</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="oshdatacore.component_implementations.DataRecordComponent.swe_type">
+<span class="sig-name descname"><span class="pre">swe_type</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#oshdatacore.datamodels_core.SWEDataTypes" title="oshdatacore.datamodels_core.SWEDataTypes"><span class="pre">SWEDataTypes</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'DataRecord'</span></em><a class="headerlink" href="#oshdatacore.component_implementations.DataRecordComponent.swe_type" title="Permalink to this definition"></a></dt>
+<dd><p>The “type” attribute is used to specify the component type. It is mandatory for all class that inherit from 
+DataComponentImpl to use a default value for this attribute. It is name swe_type here to avoid conflicts with
+the python type() function.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="oshdatacore.component_implementations.QuantityComponent">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">oshdatacore.component_implementations.</span></span><span class="sig-name descname"><span class="pre">QuantityComponent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extension</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">identifier</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">description</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">definition</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">optional</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">updatable</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">swe_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#oshdatacore.datamodels_core.SWEDataTypes" title="oshdatacore.datamodels_core.SWEDataTypes"><span class="pre">SWEDataTypes</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">SWEDataTypes.QUANTITY</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">uom</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">constraint</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">AllowedValues</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/oshdatacore/component_implementations.html#QuantityComponent"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#oshdatacore.component_implementations.QuantityComponent" title="Permalink to this definition"></a></dt>
+<dd><p>The “Quantity” class is used to specify a component with a continuous numerical
+representation</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="oshdatacore.component_implementations.QuantityComponent.swe_type">
+<span class="sig-name descname"><span class="pre">swe_type</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#oshdatacore.datamodels_core.SWEDataTypes" title="oshdatacore.datamodels_core.SWEDataTypes"><span class="pre">SWEDataTypes</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Quantity'</span></em><a class="headerlink" href="#oshdatacore.component_implementations.QuantityComponent.swe_type" title="Permalink to this definition"></a></dt>
+<dd><p>The “type” attribute is used to specify the component type. It is mandatory for all class that inherit from 
+DataComponentImpl to use a default value for this attribute. It is name swe_type here to avoid conflicts with
+the python type() function.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="oshdatacore.component_implementations.TextComponent">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">oshdatacore.component_implementations.</span></span><span class="sig-name descname"><span class="pre">TextComponent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extension</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">identifier</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">description</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">definition</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">optional</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">updatable</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">swe_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#oshdatacore.datamodels_core.SWEDataTypes" title="oshdatacore.datamodels_core.SWEDataTypes"><span class="pre">SWEDataTypes</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">SWEDataTypes.TEXT</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">constraint</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">AllowedTokens</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/oshdatacore/component_implementations.html#TextComponent"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#oshdatacore.component_implementations.TextComponent" title="Permalink to this definition"></a></dt>
+<dd><p>The “Text” class is used to specify a component with a textual representation</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><p>name: The name of the component
+label: A human-readable label for the component
+definition: A URI that identifies the ontological definition of the component
+description: A description of the component
+constraint: limits the set of valid values
+value: The latest value of the component
+swe_type: SWEDataTypes.TEXT</p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="oshdatacore.component_implementations.TextComponent.swe_type">
+<span class="sig-name descname"><span class="pre">swe_type</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#oshdatacore.datamodels_core.SWEDataTypes" title="oshdatacore.datamodels_core.SWEDataTypes"><span class="pre">SWEDataTypes</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Text'</span></em><a class="headerlink" href="#oshdatacore.component_implementations.TextComponent.swe_type" title="Permalink to this definition"></a></dt>
+<dd><p>The “type” attribute is used to specify the component type. It is mandatory for all class that inherit from 
+DataComponentImpl to use a default value for this attribute. It is name swe_type here to avoid conflicts with
+the python type() function.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="oshdatacore.component_implementations.TimeComponent">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">oshdatacore.component_implementations.</span></span><span class="sig-name descname"><span class="pre">TimeComponent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extension</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">identifier</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">description</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">definition</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'http://www.opengis.net/def/property/OGC/0/SamplingTime'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">optional</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">updatable</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">swe_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#oshdatacore.datamodels_core.SWEDataTypes" title="oshdatacore.datamodels_core.SWEDataTypes"><span class="pre">SWEDataTypes</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">SWEDataTypes.TIME</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reference_time</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">local_frame</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">time.struct_time(tm_year=1970,</span> <span class="pre">tm_mon=1,</span> <span class="pre">tm_mday=1,</span> <span class="pre">tm_hour=0,</span> <span class="pre">tm_min=0,</span> <span class="pre">tm_sec=0,</span> <span class="pre">tm_wday=3,</span> <span class="pre">tm_yday=1,</span> <span class="pre">tm_isdst=0)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">uom</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'http://www.opengis.net/def/uom/ISO-8601/0/Gregorian'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">constraint</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">AllowedValues</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/oshdatacore/component_implementations.html#TimeComponent"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#oshdatacore.component_implementations.TimeComponent" title="Permalink to this definition"></a></dt>
+<dd><p>The “Time” class is used to specify a component with a date-time representation and
+whose value is projected along the axis of a temporal reference frame. This class is also
+necessary to specify that a time value is expressed in a calendar system.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="oshdatacore.component_implementations.TimeComponent.definition">
+<span class="sig-name descname"><span class="pre">definition</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'http://www.opengis.net/def/property/OGC/0/SamplingTime'</span></em><a class="headerlink" href="#oshdatacore.component_implementations.TimeComponent.definition" title="Permalink to this definition"></a></dt>
+<dd><p>The “definition” attribute identifies the property (often an observed property in our
+context) that the data component represents by using a scoped name. It should map to a
+controlled term defined in an (web accessible) dictionary, registry or ontology. Such
+terms provide the formal textual definition agreed upon by one or more communities,
+eventually illustrated by pictures and diagrams as well as additional semantic information
+such as relationships to units and other concepts, ontological mappings, etc.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="oshdatacore.component_implementations.TimeComponent.swe_type">
+<span class="sig-name descname"><span class="pre">swe_type</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#oshdatacore.datamodels_core.SWEDataTypes" title="oshdatacore.datamodels_core.SWEDataTypes"><span class="pre">SWEDataTypes</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Time'</span></em><a class="headerlink" href="#oshdatacore.component_implementations.TimeComponent.swe_type" title="Permalink to this definition"></a></dt>
+<dd><p>The “type” attribute is used to specify the component type. It is mandatory for all class that inherit from 
+DataComponentImpl to use a default value for this attribute. It is name swe_type here to avoid conflicts with
+the python type() function.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="oshdatacore.component_implementations.VectorComponent">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">oshdatacore.component_implementations.</span></span><span class="sig-name descname"><span class="pre">VectorComponent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">definition</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reference_frame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">local_frame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">description</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/oshdatacore/component_implementations.html#VectorComponent"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#oshdatacore.component_implementations.VectorComponent" title="Permalink to this definition"></a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="oshdatacore.component_implementations.VectorComponent.swe_type">
+<span class="sig-name descname"><span class="pre">swe_type</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#oshdatacore.datamodels_core.SWEDataTypes" title="oshdatacore.datamodels_core.SWEDataTypes"><span class="pre">SWEDataTypes</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Vector'</span></em><a class="headerlink" href="#oshdatacore.component_implementations.VectorComponent.swe_type" title="Permalink to this definition"></a></dt>
+<dd><p>The “type” attribute is used to specify the component type. It is mandatory for all class that inherit from 
+DataComponentImpl to use a default value for this attribute. It is name swe_type here to avoid conflicts with
+the python type() function.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-oshdatacore.encoding">
+<span id="datacore-encoding"></span><h1>DataCore Encoding<a class="headerlink" href="#module-oshdatacore.encoding" title="Permalink to this heading"></a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="oshdatacore.encoding.AbstractEncoding">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">oshdatacore.encoding.</span></span><span class="sig-name descname"><span class="pre">AbstractEncoding</span></span><a class="reference internal" href="_modules/oshdatacore/encoding.html#AbstractEncoding"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#oshdatacore.encoding.AbstractEncoding" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="oshdatacore.encoding.BinaryEncoding">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">oshdatacore.encoding.</span></span><span class="sig-name descname"><span class="pre">BinaryEncoding</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">byte_encoding</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#oshdatacore.encoding.ByteEncoding" title="oshdatacore.encoding.ByteEncoding"><span class="pre">ByteEncoding</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">ByteEncoding.RAW</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">byte_order</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#oshdatacore.encoding.ByteOrder" title="oshdatacore.encoding.ByteOrder"><span class="pre">ByteOrder</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">ByteOrder.LITTLE_ENDIAN</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">byte_length</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/oshdatacore/encoding.html#BinaryEncoding"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#oshdatacore.encoding.BinaryEncoding" title="Permalink to this definition"></a></dt>
+<dd><p>The “BinaryEncoding” class defines a method that allows encoding complex structured
+data using primitive data types encoded directly at the byte level, in the same way that
+they are usually represented in memory.
+The binary encoding method can lead to very compact streams that can be optimized for
+efficient parsing and fast random access. However, this comes with the lack of human
+readability of the data and sometimes lack of compatibility with other software (i.e.
+software that is not SWE Common enabled). - OGC 08-094r1 pg. 62</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="oshdatacore.encoding.ByteEncoding">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">oshdatacore.encoding.</span></span><span class="sig-name descname"><span class="pre">ByteEncoding</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/oshdatacore/encoding.html#ByteEncoding"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#oshdatacore.encoding.ByteEncoding" title="Permalink to this definition"></a></dt>
+<dd><p>An enumeration.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="oshdatacore.encoding.ByteOrder">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">oshdatacore.encoding.</span></span><span class="sig-name descname"><span class="pre">ByteOrder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/oshdatacore/encoding.html#ByteOrder"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#oshdatacore.encoding.ByteOrder" title="Permalink to this definition"></a></dt>
+<dd><p>An enumeration.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="oshdatacore.encoding.TextEncoding">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">oshdatacore.encoding.</span></span><span class="sig-name descname"><span class="pre">TextEncoding</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">token</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">','</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">block</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'\n'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">decimal</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'.'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">collapse_white_space</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/oshdatacore/encoding.html#TextEncoding"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#oshdatacore.encoding.TextEncoding" title="Permalink to this definition"></a></dt>
+<dd><p>The “TextEncoding” class defines a method allowing encoding arbitrarily complex data
+using a text based delimiter separated values (DSV) format. -  OGC 08-094r1 pg. 59</p>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Ian Patterson.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
